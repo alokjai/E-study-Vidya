@@ -1,0 +1,19 @@
+touch .gitignore
+git config --global user.name Alok
+git config --global user.email "Your_email@gmail.com"
+git init
+git add .
+git commit -m "Initial commit"
+git status  # just to see
+ssh-keygen -t rsa -b 4096 -C "Your_email@gmail.com"
+cat <path to id_rsa.pub> # Add this key to your Github Account
+git remote add origin <ssh url.git>
+git push origin master
+
+# For updating 
+
+git add .
+
+git commit -m "Added Cheatsheet"
+
+git push origin master
