@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EstudyCorner.Models
+@model IEnumerable<notification>    
+
+<div class="container-fluid">
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div style="border:2px solid white;padding:20px;">
+                <center><span style="color:#88f41a; font-size: 35px; font-weight: bold;">Add Notification</span> </center>
+                @using (Html.BeginForm("Notification", "AdminZone", FormMethod.Post))
+                {
+                    <div class="row ">
+                        <div class="col-sm-12">
+                            @Html.TextArea("msg", null, new { @class = "form-control", placeholder = "Type here...", rows = "2", style = "font-size:17px;" })
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <input type="submit" value="ADD" class="btn btn-success btn-block" style="font-size:18px;margin:20px 20px 20px 0px;font-weight:600" />
+                        </div>
+                        <div class="col-sm-2"></div>
+
+                    </div>
+                }
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-sm-12 text-center">
+                        <span style="color:antiquewhite;font-size:18px;font-weight:600;"> @ViewBag.msg</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h3" style="font-size:17px;font-weight:600">@ViewBag.msg</div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div style="border:2px solid white; padding: 20px;">
+                <center><span style="color:#88f41a; font-size: 35px; font-weight: bold;">Manage Notification</span> </center>
+                <table class="table table-hover table-responsive-sm table-bordered">
+                    <tr style="font-size:20px;color:black;font-weight:700;">
+                        <th>S.N.</th>
+                        <th>Notification</th>
+                        <th>Added On</th>
+                        <th>Delete</th>
+                    </tr>
+                    @{
+                        foreach (notification N in Model)
+                        {
+                            <tr style="font-size:18px;color:white;font-weight:500;">
+                                <td>@N.notyID</td>
+                                <td>@N.msg</td>
+                                <td>@N.notydate</td>
+                                <td>
+                                    <a href="/AdminZone/DeleteNotification?notyID=@N.notyID">Remove </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+</div>

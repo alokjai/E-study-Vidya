@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "LibraryMgmt";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using EstudyCorner.Models
+@model IEnumerable<Library>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 " style="min-height:400px;background-color:aqua;margin:80px 10px 80px 10px;">
+
+            <div class="row text-center" style="min-height:60px;background-color:cadetblue;">
+                <div class="col-sm-12" style="color:whitesmoke;padding-top:10px;font-size:25px;"><span class="glyphicon glyphicon-book">Libray Management</span></div>
+            </div>
+            @using (Html.BeginForm("LibraryMgmt", "AdminZone", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("@Title", null, new { required = "required", @class = "form-control", placeholder = "Title", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("BookName", null, new { required = "required", @class = "form-control", placeholder = "Book Name", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("BookWriter", null, new { required = "required", @class = "form-control", placeholder = "Writer Name", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px;">
+                        @Html.TextBox("Libre", null, new { type = "file", @class = "form-control", style = "font-size:18px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;">
+                        <input type="submit" value="Add Book" class="btn-success btn-block" style="font-size:18px;width:95%;" />
+                    </div>
+                </div>
+
+
+
+
+            }
+
+            <div class="row">
+                <div class="col-sm-12 text-center" style="margin:20px;margin-bottom:10px;">
+                    <span style="font-size:18px;font-weight:600;color:red;">@ViewBag.Msg</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h1" style="background-color:#88f41a;padding:20px;margin-top:15px;border-radius:8px;">
+            Library Management
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h3" style="font-size:17px;font-weight:600">@ViewBag.msg</div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="padding:15px;">
+        <div class="col-sm-12" style="color:white;font-size:18px;">
+            <table border="1" style="width:100%;background-color:rgba(237, 196, 23, 0.78);border-radius:8px;" class="table table-hover table-responsive-sm table-bordered text-center">
+                <tr style="background-color: black;color:white;font-weight:800;">
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Book Name</th>
+                    <th>Writer Name</th>
+                    <th>Upload Date</th>
+                   <th>Remove</th>
+
+                </tr>
+                @{ 
+                    foreach (Library lib in Model)
+                    {
+                       <tr style="color:black;font-weight:500;">
+                           <td>@lib.BookId</td>
+                           <td>@lib.Title</td>
+                           <td>@lib.BookName</td>
+                           <td>@lib.BookWriter</td>
+                           <td>@lib.AddedON</td>
+
+                            <td><a href="/AdminZone/DeleteBook?bookid=@lib.BookId"> Remove Book </a></td>
+
+                       </tr>
+                    }
+                 }
+            </table>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EstudyCornerModelStoreContainer" CdmEntityContainer="EstudyCornerEntities">
+    <EntitySetMapping Name="enquiries">
+      <EntityTypeMapping TypeName="EstudyCornerModel.enquiry">
+        <MappingFragment StoreEntitySet="enquiry">
+          <ScalarProperty Name="enquiryid" ColumnName="enquiryid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="emailId" ColumnName="emailId" />
+          <ScalarProperty Name="mobno" ColumnName="mobno" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="enquiry_dt" ColumnName="enquiry_dt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="EstudyCornerModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="Utype" ColumnName="Utype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="EstudyCornerModel.notification">
+        <MappingFragment StoreEntitySet="notification">
+          <ScalarProperty Name="notyID" ColumnName="notyID" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="notydate" ColumnName="notydate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registrations">
+      <EntityTypeMapping TypeName="EstudyCornerModel.registration">
+        <MappingFragment StoreEntitySet="registration">
+          <ScalarProperty Name="Sn" ColumnName="Sn" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="college" ColumnName="college" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="branch" ColumnName="branch" />
+          <ScalarProperty Name="course_year" ColumnName="course_year" />
+          <ScalarProperty Name="training_name" ColumnName="training_name" />
+          <ScalarProperty Name="emailID" ColumnName="emailID" />
+          <ScalarProperty Name="mobno" ColumnName="mobno" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="picName" ColumnName="picName" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="regDate" ColumnName="regDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdFeedbacks">
+      <EntityTypeMapping TypeName="EstudyCornerModel.StdFeedback">
+        <MappingFragment StoreEntitySet="StdFeedback">
+          <ScalarProperty Name="FeedbackDt" ColumnName="FeedbackDt" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAnswers">
+      <EntityTypeMapping TypeName="EstudyCornerModel.DAnswer">
+        <MappingFragment StoreEntitySet="DAnswer">
+          <ScalarProperty Name="ansDATE" ColumnName="ansDATE" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="QuesID" ColumnName="QuesID" />
+          <ScalarProperty Name="AnsID" ColumnName="AnsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dquestions">
+      <EntityTypeMapping TypeName="EstudyCornerModel.Dquestion">
+        <MappingFragment StoreEntitySet="Dquestion">
+          <ScalarProperty Name="askDate" ColumnName="askDate" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="Qid" ColumnName="Qid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdUploads">
+      <EntityTypeMapping TypeName="EstudyCornerModel.StdUpload">
+        <MappingFragment StoreEntitySet="StdUpload">
+          <ScalarProperty Name="uploadDT" ColumnName="uploadDT" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="topic" ColumnName="topic" />
+          <ScalarProperty Name="uploadID" ColumnName="uploadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assignments">
+      <EntityTypeMapping TypeName="EstudyCornerModel.assignment">
+        <MappingFragment StoreEntitySet="assignment">
+          <ScalarProperty Name="addedON" ColumnName="addedON" />
+          <ScalarProperty Name="NoQues" ColumnName="NoQues" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="assignName" ColumnName="assignName" />
+          <ScalarProperty Name="assignDATE" ColumnName="assignDATE" />
+          <ScalarProperty Name="assignID" ColumnName="assignID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudyMaterials">
+      <EntityTypeMapping TypeName="EstudyCornerModel.StudyMaterial">
+        <MappingFragment StoreEntitySet="StudyMaterial">
+          <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="StdMatID" ColumnName="StdMatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libraries">
+      <EntityTypeMapping TypeName="EstudyCornerModel.Library">
+        <MappingFragment StoreEntitySet="Library">
+          <ScalarProperty Name="BookFileName" ColumnName="BookFileName" />
+          <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+          <ScalarProperty Name="BookWriter" ColumnName="BookWriter" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Softuploads">
+      <EntityTypeMapping TypeName="EstudyCornerModel.Softupload">
+        <MappingFragment StoreEntitySet="Softupload">
+          <ScalarProperty Name="SoftFile" ColumnName="SoftFile" />
+          <ScalarProperty Name="SoftName" ColumnName="SoftName" />
+          <ScalarProperty Name="softDate" ColumnName="softDate" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveApps">
+      <EntityTypeMapping TypeName="EstudyCornerModel.LeaveApp">
+        <MappingFragment StoreEntitySet="LeaveApp">
+          <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="AppliID" ColumnName="AppliID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

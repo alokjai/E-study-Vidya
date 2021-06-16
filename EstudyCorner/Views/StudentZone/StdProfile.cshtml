@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewBag.Title = "StdProfile";
+    Layout = "~/Views/Shared/StudentZoneLayout.cshtml";
+}
+
+@using EstudyCorner.Models
+@model registration
+
+
+
+<div class="container-fluid">
+    <div class="row text-center" style="background-color:burlywood;">
+        <div class="col-sm-12 text-center">
+            <p style="font-size:25px;font-weight:800;color:white;">My Profile</p>
+        </div>
+    </div>
+    <!--First Section-->
+    <div class="row" style="background-image:url('/Content/Images/background 3.jpg');">
+        <div class="col-sm-5">
+            <div class="row"> </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4" style="padding:100px;">
+                    <img id="ImgUpic" width="170" height="180px" src="@ViewBag.StudentPic" style="border-radius:7px;border:1px solid black;" />
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="row"> </div>
+
+        </div>
+        <!--Second Section-->
+        <div class="col-sm-7">
+
+            <div class="container-fluid" style="border:outset; border-radius:10px;margin:15px 0px 15px 0px;background-color:rgba(255, 255, 255, 0.69)">
+                <div class="row text-center" style="padding:15px;">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4"> <p style="text-align:center;font-size:18px;font-weight:600;">@ViewBag.Msg</p></div>
+                    <div class="col-sm-4"></div>
+
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <span style="font-size:16px;background-color:hotpink;color:white;"> </span>
+                </div>
+
+                <div class="row" style="padding:15px 0px 18px 0px;">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        @using (Html.BeginForm("StdProfile", "StudentZone", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Student's Name </p><br />
+                                @Html.TextBox("name", Model.name, new { placeholder = "Enter your name", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Father's Name </p><br />
+                                @Html.TextBox("Fname", Model.Fname, new { placeholder = "Enter your Father name", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Collage's Name </p><br />
+                                @Html.TextBox("College", Model.college, new { placeholder = "Enter your Collage name ", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Qualification </p>
+                                <select id="Quali" class="form-control" name="Qualification" style="font-size:15px;height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;">
+                                    <option>---------------------Select Level----------------------------</option>
+                                    <option>B.Tech</option>
+                                    <option>B.E.</option>
+                                    <option>Diploma</option>
+                                    <option>BSC( IT / CS )</option>
+                                    <option>BCA</option>
+                                    <option>MCA</option>
+                                </select>
+                            </div>
+
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Branch &nbsp;&nbsp;&nbsp; </p><br />
+                                <select id="Branch" class="form-control" name="branch" style="font-size:15px;height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;">
+                                    <option>---------------------Select Branch-------------------------</option>
+                                    <option>Computer Science & Engineering</option>
+                                    <option>Electronics Engineering</option>
+                                    <option>Machanical Engineering</option>
+                                    <option>Information Technology</option>
+                                    <option>Textile Engineering</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Course Year </p><br />
+                                @Html.TextBox("course_year", Model.course_year, new { type = "number", placeholder = "Enter your Course Year ", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Take your technology For Training  </p>
+                                <select id="training" class="form-control" name="training_name" style="font-size:15px;height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;">
+                                    <option>---------------------Training Name-------------------------</option>
+                                    <option>Advance Java with Spring Framework </option>
+                                    <option>Asp.net with MVC</option>
+                                    <option>PHP with CodeIgnitor</option>
+                                    <option>Web Technology</option>
+                                    <option>Python with Django Framework</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Email-id </p><br />
+                                @Html.TextBox("emailID", Model.emailID, new { placeholder = "Enter your E-Mail ID", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset; disabled:true;", })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Mobile Number </p><br />
+                                @Html.TextBox("mobno", Model.mobno, new { placeholder = "Enter your Mobile number", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="padding-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Gender : </p><br />
+                                @if (Model.gender == "male")
+                                {
+                                    <p style="font-size:15px;font-weight:500;">  @Html.RadioButton("gender", "male", new { @class = "form-control", @checked = "true" })Male</p>
+                                    <p style="font-size:15px;font-weight:500;"> @Html.RadioButton("gender", "female", new { @class = "form-control" })Female</p>
+                                }
+                                else
+                                {
+                                    <p style="font-size:15px;font-weight:500;">  @Html.RadioButton("gender", "male", new { @class = "form-control" })Male</p>
+                                    <p style="font-size:15px;font-weight:500;"> @Html.RadioButton("gender", "female", new { @class = "form-control", @checked = "true" })Female</p>
+                                }
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Address </p><br />
+                                @Html.TextArea("address", Model.address, new { placeholder = "Enter your Address ", row = 3, @class = "form-control", style = "font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Upload your Pic</p><br />
+                                @Html.TextBox("pic", null, new { type = "file", @class = "form-control", style = "font-size:18px;" })
+                            </div>
+
+
+
+
+
+                            <div class="row" style="margin-top:15px;">
+                                <div class="col-sm-6">
+                                    <input type="submit" name="BtnSave" value="Update Profile" class="btn btn-primary btn-block"
+                                           style="height:35px;width:90%;font-size:18px;border-radius:7px;border:outset;padding:0px;" />
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <input type="reset" name="BtnReset" value="Reset" class="btn btn-danger btn-block"
+                                           style="height:35px;width:90%;font-size:18px;border-radius:7px;border:outset;padding:0px;" />
+                                </div>
+                            </div>
+
+
+
+
+                        }
+                    </div>
+                    <div class="col-sm-2">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#Quali").val("@Model.Qualification");
+        $("#Branch").val("@Model.branch");
+        $("#training").val("@Model.training_name");
+    });
+</script>

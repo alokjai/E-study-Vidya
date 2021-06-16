@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "StdRecord";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EstudyCorner.Models
+@model IEnumerable<registration>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h1" style="background-color:#88f41a;padding:20px;margin-top:15px;border-radius:8px;">
+            Student Management
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="padding:15px;">
+        <div class="col-sm-12" style="color:white;font-size:18px;">
+            <div class="row text-center">
+                <span style="color:red;font-size:18px;">@TempData["msg"]</span> 
+            </div>
+            <table border="1" style="width:100%;background-color:rgba(255, 255, 255, 0.65);border-radius:8px;" class="table table-hover table-responsive-sm table-bordered text-center">
+                <tr style="background-color: black;color:white;font-weight:800;">
+                    
+                    <th>Name</th>
+                    <th>Father Name</th>
+                    <th>Gender</th>
+                    <th>Qualification</th>
+                    <th>Mobile No</th>
+                    <th>Email-Id</th>
+                    <th>College</th>
+                    <th>Branch</th>
+                    <th>Course Year</th>
+                    <th>Training name</th>
+                    <th>Photo</th>
+                    <th>Address</th>
+                    <th>Registered On</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (registration reg in Model)
+                {
+                    string imgname = "";
+                    if (reg.picName.Length == 0)
+                    {
+                        if (reg.gender == "male")
+                        {
+                            imgname = "/Content/Images/defaultmale.png";
+                        }
+                        else
+                        {
+                            imgname = "/Content/Images/default_female.png";
+                        }
+                    }
+                    else
+                    {
+                        imgname = "/Content/UserPics/" + reg.picName ;
+                    }
+                    <tr style="color:black;font-weight:500;">
+                        <td>@reg.name</td>
+                        <td>@reg.Fname</td>
+                        <td>@reg.gender</td>
+                        <td>@reg.Qualification</td>
+                        <td>@reg.mobno</td>
+                        <td>@reg.emailID</td>
+                        <td>@reg.college</td>
+                        <td>@reg.branch</td>
+                        <td>@reg.course_year</td>
+                        <td>@reg.training_name</td>
+                        <td>
+                            <img src="@imgname" width="60px" height="70px" />
+                        </td>
+                        <td>@reg.address</td>
+                        <td>@reg.regDate</td>
+                        <td>
+                            <a href="/AdminZone/DeleteStudDetail?stdID=@reg.emailID">
+                                <img src="~/Content/Images/deleteicon.png" style="background-color:red;"title="Delete Record" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

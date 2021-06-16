@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f16fd56b89e4d2c813e329f89501e3c" Name="Diagram1">
+        <EntityTypeShape EntityType="EstudyCornerModel.enquiry" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EstudyCornerModel.login" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EstudyCornerModel.notification" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EstudyCornerModel.registration" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EstudyCornerModel.StdFeedback" Width="1.5" PointX="5" PointY="4.75" />
+        <AssociationConnector Association="EstudyCornerModel.FK_StdFeedback_registration" />
+        <EntityTypeShape EntityType="EstudyCornerModel.DAnswer" Width="1.5" PointX="5" PointY="7.75" />
+        <EntityTypeShape EntityType="EstudyCornerModel.Dquestion" Width="1.5" PointX="5" PointY="1.125" />
+        <EntityTypeShape EntityType="EstudyCornerModel.StdUpload" Width="1.5" PointX="5" PointY="10.75" />
+        <AssociationConnector Association="EstudyCornerModel.FK_DAnswer_registration" />
+        <AssociationConnector Association="EstudyCornerModel.FK_Dquestion_registration" />
+        <AssociationConnector Association="EstudyCornerModel.FK_StdUpload_registration" />
+        <EntityTypeShape EntityType="EstudyCornerModel.assignment" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EstudyCornerModel.StudyMaterial" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EstudyCornerModel.Library" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="EstudyCornerModel.Softupload" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EstudyCornerModel.LeaveApp" Width="1.5" PointX="5" PointY="14" />
+        <AssociationConnector Association="EstudyCornerModel.FK_LeaveApp_registration" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

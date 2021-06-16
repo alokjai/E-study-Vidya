@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Leave";
+    Layout = "~/Views/Shared/StudentZoneLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 " style="min-height:300px;background-color:aqua;margin:80px 10px 80px 10px; ">
+
+            <div class="row text-center" style="min-height:60px;background-color:cadetblue;">
+                <div class="col-sm-12 text-center" style="color:whitesmoke;padding-top:10px;font-size:25px;"> My Leave application</div>
+            </div>
+            @using (Html.BeginForm("Leave", "StudentZone", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("Subject", null, new { required="required", @class = "form-control", placeholder = "Subject", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px;">
+                        @Html.TextBox("Appli", null, new { type = "file", @class = "form-control", style = "font-size:18px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;">
+                        <input type="submit" class="btn-success btn-block" style="font-size:18px;width:95%;" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;">
+                        <input type="reset" class="btn-danger btn-block" style="font-size:18px;width:95%;" />
+                    </div>
+                </div>
+
+            }
+
+            <div class="row">
+                <div class="col-sm-12" style="margin:20px;">
+                    <span style="font-size:18px;font-weight:600;color:red;">@ViewBag.Msg</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+</div>

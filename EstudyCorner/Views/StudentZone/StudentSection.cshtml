@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "StudentSection";
+    Layout = "~/Views/Shared/StudentZoneLayout.cshtml";
+}
+
+
+<div class="container-fluid"style="padding-right:0px;margin-right:0px;background-color:rgba(252, 250, 250, 0.86)">
+    <div class="row" style="margin-top:50px;">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+
+            <a href="StudyMat"> <img src="~/Content/icon/Study.png" height="120" width="100" /></a>
+            <br />
+            @Html.ActionLink("Study Material", "StudyMat", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="Discussion"> <img src="~/Content/icon/discussion.jpg" height="120" width="100" /></a>
+            <br />
+            @Html.ActionLink("Discussion", "Discussion", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="TodayTask"><img src="~/Content/icon/assignment.png" height="120" width="100" /></a>
+            <br />
+            @Html.ActionLink("Assignment", "TodayTask", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row" ">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+           <a href="Leave" > <img src="/Content/icon/Leave.png"  height="120" width="100" /> </a>
+            <br />
+            @Html.ActionLink("My Leave", "Leave", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px ;">
+           <a href="upload" ><img src="~/Content/icon/upload.png" height="120" width="100" /> </a>
+            <br />
+            @Html.ActionLink("Upload Task", "upload", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px ">
+            <a href="StdProfile"> <img src="~/Content/icon/myprofile.png" height="120" width="130" /></a>
+            <br />
+            @Html.ActionLink("My Profile", "StdProfile", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row" style="margin-bottom:20px;">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+             <a href="Feedback"><img src="~/Content/icon/feedback.png" height="120" width="100"/></a>
+            <br />
+            @Html.ActionLink("Feedback", "Feedback", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="Library"> <img src="~/Content/icon/library.png" height="120" width="100" /></a>
+            <br />
+            @Html.ActionLink("Library", "Library", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+             <a href="Downloadsoft"><img src="~/Content/icon/software.png" height="120" width="100" /></a>
+            <br />
+            @Html.ActionLink("Software", "DownloadSoft", "StudentZone", new { style = "font-size:18px;color:black;font-weight:600;" })
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+

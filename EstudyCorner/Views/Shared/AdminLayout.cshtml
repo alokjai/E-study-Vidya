@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome To Admin Zone</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid" style="background-image:url('/Content/Images/adminback.jpg')">
+        <div class="row text-center">
+            <div class="col-sm-4"> </div>
+            <div class="col-sm-4"><p style="font-size:15px;font-weight:700;padding-top:10px;color:whitesmoke;">Welcome Admin</p> </div>
+            <div class="col-sm-4"> </div>
+
+        </div>
+
+        <div class="row" >
+            <div class="col-sm-2" style="margin:0px;padding:0px;padding-left:10px;">
+                 <img src="~/Content/Images/mylogo.png" height="105px" width="110px" />
+            </div>
+
+            <div class="col-sm-10 text-center">
+                <nav class="navbar navbar-expand-md  navbar-light  " style="padding:15px;margin:0px;">
+                    <!-- Brand -->
+                    <!-- <a class="navbar-brand" href="#">Menubar</a>-->
+                    <!-- Toggler/collapsibe Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav" style="font-size:20px;">
+                            <li class="nav-item" style="margin-left:35px">
+                                @Html.ActionLink("Dashboard", "Dashboard", "AdminZone", new { @class = "nav-link", style = "font-weight:800;color:whitesmoke;" })
+                            </li>
+                            <li class="nav-item" style="margin-left:35px">
+                                @Html.ActionLink("Download", "DownloadMgt", "AdminZone", new { @class = "nav-link", style = "font-weight:800;color:whitesmoke;" })
+                            </li>
+                            <li class="nav-item" style="margin-left:35px">
+                                @Html.ActionLink("Upload Files", "AdminUpload", "AdminZone", new { @class = "nav-link", style = "font-weight:800;color:whitesmoke;" })
+                            </li>
+                            <li class="nav-item" style="margin-left:35px">
+                                @Html.ActionLink("Feedback", "FeedbackMgmt", "AdminZone", new { @class = "nav-link", style = "font-weight:800;color:whitesmoke;" })
+                            </li>
+                            <li class="nav-item" style="margin-left:35px">
+                                @Html.ActionLink("Upload Study Materials", "StudyMatrialMgt", "AdminZone", new { @class = "nav-link", style = "font-weight:800;color:whitesmoke;" })
+                            </li>
+                            <!--dropdown-->
+                            <li class="nav-item dropdown" style="margin-left:35px">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    <span style="font-weight:800;font-size:20px;color:whitesmoke;">Send</span>
+                                </a>
+                                <div class="dropdown-menu" style="background:none;">
+                                    @Html.ActionLink("Send SMS", "SendSms", "AdminZone", new { @class = "dropdown-item", style = "font-size:18px;font-weight:500;color:whitesmoke;" })
+                                </div>
+                            </li>
+
+                            <li class="nav-item" style="margin-left:35px">
+                                @Html.ActionLink("Discussion Forum", "DiscussionForum", "AdminZone", new { @class = "nav-link", style = "font-weight:800;color:whitesmoke;" })
+                            </li>
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown" style="margin-left:35px">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    <span style="font-weight:800;font-size:20px;color:whitesmoke;">Settings</span>
+                                </a>
+                                <div class="dropdown-menu" style="background:none;">
+
+                                    @Html.ActionLink("Change Password", "ChangePassword", "AdminZone", new { @class = "dropdown-item", style = "font-size:18px;font-weight:500;color:whitesmoke;" })
+                                    @Html.ActionLink("Logout", "Logout", "AdminZone", new { @class = "dropdown-item", style = "font-size:18px;font-weight:500;color:whitesmoke;" })
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+           
+        </div>
+
+        <div class="row" style="min-height:600px;">
+            @RenderBody()
+        </div>
+        <div class="row" style="background-color:rgba(0, 0, 0, 0.65); min-height:50px;padding-top:10px;">
+            <div class="col-sm-6 text-center">
+                <span style="font-size:15px;font-weight:500;color:white;text-align:center;">Since 2015:2019 ISO Certified Company </span>
+            </div>
+            <div class="col-sm-6 text-center">
+                <span style="font-size:15px;font-weight:500;color:white;text-align:center;">Design & Developed by <a href="/Home/Personal" style="color:white;">Alok Jaiswal</a> </span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

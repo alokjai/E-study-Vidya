@@ -1,0 +1,76 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="background-image:url('/Content/Images/background12.jpg');min-height:700px;">
+            <div class="col-sm-6 text-center" style="padding-top:180px;padding-bottom:100px;">
+                <p style="font-weight:600;font-size:50px;color:white;">Admin Login</p>
+                <hr color="white"   />
+                <h3 style="color:white;"> (E-study vidya)</h3>
+            </div>
+            <div class="col-sm-6"  style="padding-top:180px;padding-bottom:100px;">
+                <div class="row">
+                                        
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8" style="border:inset ;padding:20px 50px 50px 50px;border-radius:7px;background-color:whitesmoke;">
+                        <div class="row text-center" style="padding:20px;">
+
+                            <div class="col-sm-12 text-center"><img src="~/Content/Images/userMale.png" height="100px" width="100px" style="position:center;" /></div>
+
+
+                        </div>
+
+                        @using (Html.BeginForm("Manage", "Home", FormMethod.Post))
+                        {
+
+                            @Html.TextBox("AdminId", null, new { required = "required", placeholder = "Admin-id", style = "width:100%;font-size:18px;border-radius:5px;border:outset;" })
+                            <br /><br />
+                            @Html.TextBox("Pass", null, new { type="password", required = "required", placeholder = "Password", style = "width:100%;font-size:18px;border-radius:5px;border:outset;" })
+
+                            <br /><br />
+                            <input type="submit" ,value="login" class="btn-success btn-block" style="min-height:35px;min-width:100px;border-radius:6px;font-size:18px;">
+                            <br /><br />
+                            
+                            <span style="color:red; font-size:18px;font-weight:600;text-align:center;">@ViewBag.msg</span>
+
+                        }
+                        <a href="ForgetPass" style = "color:green;font-size:15px;font-weight:800;">Forget Password</a>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                    
+                
+            </div>    
+        </div>
+    </div>
+    
+</body>
+</html>

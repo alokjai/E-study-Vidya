@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "DownloadSoft";
+    Layout = "~/Views/Shared/StudentZoneLayout.cshtml";
+}
+
+
+@using EstudyCorner.Models
+@model IEnumerable<Softupload>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h1" style="background-color:#88f41a;padding:20px;margin-top:15px;border-radius:8px;">
+            Software
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="padding:15px;">
+        <div class="col-sm-12" style="color:white;font-size:18px;">
+            <table border="1" style="width:100%;background-color:rgba(237, 196, 23, 0.78);border-radius:8px;" class="table table-hover table-responsive-sm table-bordered text-center">
+                <tr style="background-color: black;color:white;font-weight:800;">
+                    <th>Serial No.</th>
+                    <th>Software Name</th>
+                    <th>Upload Date</th>
+                   
+                    <th>Download</th>
+
+                </tr>
+                @foreach (Softupload sf in Model)
+                {
+                    <tr style="color:black;font-weight:500;">
+                        <td>@sf.SerialNo</td>
+                        <td>@sf.SoftName</td>
+                        <td>@sf.softDate</td>
+                     
+                        <td><a href="~/Content/Software/@sf.SoftFile" title="Download"> Download Software </a></td>
+
+                    </tr>
+                }
+            </table>
+
+
+        </div>
+    </div>
+</div>

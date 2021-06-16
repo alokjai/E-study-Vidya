@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/General_layout.cshtml";
+}
+
+<div class="row" style="padding-right:0px;padding-left:0px;margin:0px;" >
+    <div id="demo" class="carousel slide" data-ride="carousel" style="padding:0px;margin-top:15px;">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+            
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Content/Images/slider5.jpg" width="100%"  />
+            </div>
+            
+            <div class="carousel-item">
+                <img src="~/Content/Images/slider3.jpg"  width="100%" />
+            </div>
+            <div class="carousel-item ">
+                <img src="~/Content/Images/slider1.jpg"  width="100%" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/background2.jpg"  width="100%" />
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+</div>
+<div class="row" style="background-color:white;min-height:300px;font-size:18px;">
+    <div class="col-sm-12 text-justify" style="padding:15px 25px 15px 25px;">
+        <h2 style="font-weight:500;">About Us:-</h2>
+        Now a Days Professional - education scenario is rapidly changing and demanding. Industry
+        requirements are too much ambitious and for fulfilling those industry requirements one have
+        to be more and more skilled in his respective field. Gripping of subject, knowledge about real
+        world facts, familiarity with the real time problems and solutions are the key ways to cope
+        with above challenges. This portal is enacting as a bridge of communication amongst
+        students of different fields and different colleges.
+        <br /><br />
+        E-Study Vidya is a unique Web portal personalized to meet all requirements of students of
+        different fields at a single platform –which would keep you up-to-date in academic
+        education and current affairs and would be accessible from any place of the world. E-Study
+        portal can be defined as a portal that stores and provides materials for online learning,
+        performance and assessment etc.. Student can share their ideas through discussion Board.
+        <br /><br />
+        We used a combination of surveys, focus groups, and one-on-one interviews to gather
+        information from students, faculty, and from key personnel at other institutions. After
+        gathering requirements we have decided the following aims and objectives of E-Study Vidya
+        <br /><br />
+        This portal is developing with the intension of helping those students who are not able spend
+        their time in libraries and cannot afford costly books. So, this portal provides wider knowledge
+        of information through sample papers, current affairs, books etc. and also provides regular
+        practice through tasks on day basis. The portal doesn’t have to be expensive. It should support
+        multiple academic goals. It is clear that the functionality of a portal develops over time.
+        <br /><br />
+        “E- Study Corner” is not only a web portal; it is a live product of KSS. In future we will add more
+        and more features on it. This portal can be used by any Student by registering themselves to this portal.
+    </div>
+</div>
+
+<span id="btnsp" class="btn btn-primary" style="position:fixed;top:110px;right:0px;height:40px;font-size:20px">
+    <i class="glyphicon glyphicon-plus"></i>Enquiry</span>
+
+
+
+
+<div id="dvpopup" style="width:280px;min-height:370px;background-color:pink;position:fixed;top:150px;right:0px;border-radius:20px;display:none;padding:18px;">
+    @Html.TextBox("name", null, new { placeholder = "Name", @class = "form-control", style="padding:15px;font-size:16px;"})
+    <br />
+    @Html.TextBox("email", null, new { placeholder = "Email-ID", @class = "form-control", style = "padding:15px;font-size:16px;" })
+    <br />
+    @Html.TextBox("mobile", null, new { type = "number", placeholder = "Mobile No.", @class = "form-control", style = "padding:15px;font-size:16px;" })
+    <br />
+    @Html.TextArea("msg", null, new { placeholder = "Querry type here",rows="3" ,@class = "form-control", style = "padding:15px;font-size:16px;resize:none;" })
+    <br />
+    <input type="button" class="btn btn-success btn-block" value="submit" id="btnsave">
+    <br />
+</div>
+<style>
+    .err{
+        color:red;
+    }
+</style>
+
+<script>
+
+    $(document).ready(function () {
+        $("#btnsp").click(function () {
+            $("#dvpopup").toggle("slow");
+            $("#btnsp i").toggleClass("glyphicon-plus");
+            $("#btnsp i").toggleClass("glyphicon-minus");
+        });
+   
+
+        $("#btnsave").click(function () {
+            $(".err").remove();
+        var name = $("#name").val().trim();
+        var email = $("#email").val().trim();
+        var mobileno = $("#mobile").val().trim();
+        var msg = $("#msg").val().trim();
+        var status = true;
+
+        if (name.length == 0)
+        {
+            status = false;
+            $("#name").after("<span class='err'>Please enter name</span>");
+        }
+        if (email.length == 0) {
+            status = false;
+            $("#email").after("<span class='err'>Please enter email</span>");
+        }
+
+        if (mobileno.length == 0)
+        {
+            status = false;
+            $("#mobile").after("<span class='err'>Please enter mobile</span>");
+        }
+        if (msg.length == 0) {
+            status = false;
+            $("#msg").after("<span class='err'>Please type your query</span>");
+        }
+        if (status == true)
+        {
+            $.ajax({
+                type: "Post",
+                url: "/Home/SaveEnquiry",
+                data: JSON.stringify({ name: name, emailId: email, mobno: mobileno, message: msg }),
+                dataType: "json",
+                contentType: "application/json; utf-8",
+                success: function(res) {
+                    alert(res);
+                }
+
+
+            });
+        }
+
+    });
+
+    });
+
+</script>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "AdminUpload";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 " style="min-height:400px;background-color:aqua;margin:80px 10px 80px 10px; ">
+
+            <div class="row text-center" style="min-height:60px;background-color:cadetblue;">
+                <div class="col-sm-12" style="color:whitesmoke;padding-top:10px;font-size:25px;"><span class="glyphicon glyphicon-upload">Upload</span></div>
+            </div>
+            @using (Html.BeginForm("AdminUpload", "AdminZone", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("assignDATE", null, new { required = "required", @class = "form-control", placeholder = "Assignment Date", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("assignName", null, new { required = "required", @class = "form-control", placeholder = "Assignment Name", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("NoQues", null, new { required = "required", @class = "form-control", placeholder = "No. of Question", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px;">
+                        @Html.TextBox("TaskUP", null, new { required = "required", type = "file", @class = "form-control", style = "font-size:18px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;">
+                        <input type="submit" class="btn-success btn-block" style="font-size:18px;width:95%;" />
+                    </div>
+                </div>
+
+
+
+
+            }
+
+            <div class="row">
+                <div class="col-sm-12 text-center" style="margin:20px;margin-bottom:10px;">
+                    <span style="font-size:18px;font-weight:600;color:red;">@ViewBag.Msg</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+</div>

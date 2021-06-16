@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/StudentZoneLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row" style="margin:50px 0px 50px 0px;min-height:300px;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" style="border:outset;border-bottom-right-radius:9px;border-top-right-radius:9px;min-height:350px;background-color:rgba(250, 248, 248, 0.80)">
+
+            <div class="row ">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <p style="font-size:25px;text-align:center;font-weight:800;padding-top:20px;">Feedback <span class="glyphicon glyphicon-envelope"></span></p>
+                    <hr />
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+            @using (Html.BeginForm("Feedback", "StudentZone", FormMethod.Post))
+            {
+                <div class="row ">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8" style="margin-top:10px;">
+                   
+                        @Html.TextBox("subject", null, new { required="required", @class = "form-control", placeholder = "Regarding To...", row = 2, style = "padding : 10px; margin: 10px;border: 3px outset;width:90%;border-radius:8px;font-size:18px;" })
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+
+                        @Html.TextArea("Message", null, new { required = "required", @class = "form-control", placeholder = "Type your feedback message...", rows = "5", style = "padding : 10px; margin: 10px;border: 3px outset;width:90%;border-radius:8px;font-size:18px;" })
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+
+                <div class="row " style="margin-top:10px;margin-left:15px;">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4" style="margin-left:10px;">
+                        <input type="submit" value="Submit" class="btn btn-success btn-block" style="min-height:40px;width:80%;border-radius:6px;font-size:18px;">
+                    </div>
+                    <div class="col-sm-4 " style="margin-left:10px;padding-top:10px;">
+                        <input type="reset" value="Reset " class="btn btn-danger btn-block" style="min-height:40px;width:80%;border-radius:6px;font-size:18px;">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+
+                <div class="row " style="margin:10px">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 text-center" style="margin-top:15px">
+                        <span style="font-size:17px;color:white;font-weight:600;background-color:crimson; text-align:center;">@ViewBag.res</span>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+
+            }
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>

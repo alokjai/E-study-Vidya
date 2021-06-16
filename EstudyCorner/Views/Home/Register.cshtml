@@ -1,0 +1,235 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/General_layout.cshtml";
+
+}
+<script>
+    $(document).ready(function () {
+        $("#ImRefresh").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Home/RefreshCaptchaCode",
+                success: function (res) {
+                    $("#ImCaptcha").attr("src", res);
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#imgeye").click(function () {
+            var tt = $("#imgeye").attr("title");
+            if (tt == "Show Password") {
+                $("#pass").attr("type", "text");
+                $("#imgeye").attr("src", "/Content/icon/close eye.png");
+                $("#imgeye").attr("title", "Hide Password");
+            }
+            else {
+                $("#pass").attr("type", "password");
+                $("#imgeye").attr("src", "/Content/icon/open eye.png");
+                $("#imgeye").attr("title", "Show Password");
+            }
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#eyeimg").click(function () {
+            var tt = $("#eyeimg").attr("title");
+            if (tt == "Show Password") {
+                $("#confPass").attr("type", "text");
+                $("#eyeimg").attr("src", "/Content/icon/close eye.png");
+                $("#eyeimg").attr("title", "Hide Password");
+            }
+            else {
+                $("#confPass").attr("type", "password");
+                $("#eyeimg").attr("src", "/Content/icon/open eye.png");
+                $("#eyeimg").attr("title", "Show Password");
+            }
+        });
+    });
+</script>
+
+<div class="container-fluid">
+    <div class="row " style="background-image:url('/Content/Images/slider2.jpg')">
+        <div class="col-sm-6" style="background-color:rgba(243, 242, 242, 0.82)">
+            <p style="font-size:20px;text-align:center;font-weight:800;margin-top:15px;">Benefit for you</p>
+            <p style="font-family:Algerian;text-align:justify;font-size:18px;padding-top:15px 0px 15px 15px ;font-weight:600;">
+                1. Make a user-friendly portal.<br /><br />
+                2. To provide anytime/ Anywhere Online Learning.<br /><br />
+                3. To provide anytime/ Anywhere Online discussion.<br /><br />
+                4. Enabling knowledge sharing.<br /><br />
+                5. To provide Current Affair and day by day Tasks.<br /><br />
+                6. Easy for students to use and customize.<br /><br />
+                7. To provide best education.<br /><br />
+                8. Easily accessible from any corner of the world if you have internet connection.<br /><br />
+                9. To provide online discussion board, between all registered students and admin.<br /><br />
+                10. To provide study material and course content.<br /><br />
+            </p>
+
+        </div>
+        <div class="col-sm-6" style="background-color:rgba(243, 242, 242, 0.82)">
+            <div class="container-fluid" style="border:outset; border-radius:10px;margin:15px 0px 15px 0px;">
+                <div class="row text-center" style="padding:15px;">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4"> <p style="text-align:center;font-size:20px;font-weight:900;">Register New User</p></div>
+                    <div class="col-sm-4"></div>
+                </div>
+
+
+
+                <div class="row" style="padding:15px 0px 18px 0px;">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="row text-center" style="margin-top:10px;">
+                            <span style="font-size:17px;background-color:;color:red;"> @ViewBag.Msg</span>
+                        </div>
+                        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Student's Name </p><br />
+                                @Html.TextBox("name", null, new { required = "required", placeholder = "Enter your name", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Father's Name </p><br />
+                                @Html.TextBox("Fname", null, new { required = "required", placeholder = "Enter your Father name", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Collage's Name </p><br />
+                                @Html.TextBox("College", null, new { required = "required", placeholder = "Enter your Collage name ", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Qualification </p>
+                                <select class="form-control" required name="Qualification" style="font-size:15px;height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;">
+                                    <option>---------------------Select Level----------------------</option>
+                                    <option>B.Tech</option>
+                                    <option>B.E.</option>
+                                    <option>Diploma</option>
+                                    <option>BSC( IT / CS )</option>
+                                    <option>BCA</option>
+                                    <option>MCA</option>
+                                </select>
+                            </div>
+
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Branch  </p>
+                                <select class="form-control" required name="branch" style="font-size:15px;height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;">
+                                    <option>---------------------Select Branch----------------------</option>
+                                    <option>Computer Science & Engineering</option>
+                                    <option>Electronics Engineering</option>
+                                    <option>Machanical Engineering</option>
+                                    <option>Information Technology</option>
+                                    <option>Textile Engineering</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Course Year </p><br />
+                                @Html.TextBox("course_year", null, new { required = "required", type = "number", placeholder = "Enter your Course Year ", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Take your technology For Training  </p>
+                                <select class="form-control" required name="training_name" style="font-size:15px;height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;">
+                                    <option>---------------------Training Name----------------------</option>
+                                    <option>Advance Java with Spring Framework </option>
+                                    <option>Asp.net with MVC</option>
+                                    <option>PHP with CodeIgnitor</option>
+                                    <option>Web Technology</option>
+                                    <option>Python with Django Framework</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Email-id </p><br />
+                                @Html.TextBox("emailID", null, new { required = "required", placeholder = "Enter your E-Mail ID", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Mobile Number </p><br />
+                                @Html.TextBox("mobno", null, new { required = "required", placeholder = "Enter your Mobile number", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="padding-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Gender : </p><br />
+                                <p style="font-size:15px;font-weight:500;">  @Html.RadioButton("gender", "male", new { required = "required", @class = "form-control" })Male</p> &nbsp;&nbsp;&nbsp;
+                                <p style="font-size:15px;font-weight:500;"> @Html.RadioButton("gender", "female", new { required = "required", @class = "form-control" })Female</p>
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Address </p><br />
+                                @Html.TextArea("address", null, new { required = "required", placeholder = "Enter your Address ", row = 3, @class = "form-control", style = "font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Upload your Pic</p><br />
+                                @Html.TextBox("pic", null, new { type = "file", @class = "form-control", style = "font-size:18px;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Captcha </p>
+                                <span class="form-control" style="height:unset;">
+                                    <img id="ImCaptcha" src="~/Content/CaptchaImg/@ViewBag.CaptchaImage" style="width:130px; height:35px;" />
+                                    <img src="~/Content/Images/ref.png" id="ImRefresh" style="width:35px; height:35px;" title="Refresh Code" />
+                                </span>
+                            </div>
+
+                            <div class="row" style="margin-top:10px;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Enter Captcha </p><br />
+                                @Html.TextBox("Captcha", null, new { required = "required", placeholder = "Enter Captcha code", @class = "form-control", style = "height:35px;width:90%;font-size:18px;border-radius:7px;border:inset;" })
+                            </div>
+
+                            <div class="row" style="margin-top:10px;display:flex;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Password &nbsp;&nbsp; &nbsp;&nbsp;</p><br />
+                                @Html.TextBox("pass", null, new { required = "required", type = "Password", placeholder = "Password ", @class = "form-control", style = "height:35px;width:80%;font-size:18px;border-radius:7px;border:inset;" })
+                                <img src="~/Content/icon/open eye.png" height="30px"   id="imgeye" />
+                            </div>
+
+                            <div class="row" style="margin-top:10px;display:flex;">
+                                <p style="text-align:center;font-size:18px;font-weight:600;"> Confirm Password </p><br />
+                                @Html.TextBox("confPass", null, new { required = "required", type = "Password", placeholder = " Confirm Password ", @class = "form-control", style = "height:35px;width:80%;font-size:18px;border-radius:7px;border:inset;" })
+                                <img src="~/Content/icon/open eye.png" height="30px"  id="eyeimg" />
+                            </div>
+
+                            <div class="row" style="margin-top:15px;">
+                                <div class="col-sm-6">
+                                    <input type="submit" name="BtnSave" value="Register Now" class="btn btn-primary btn-block"
+                                           style="height:35px;width:90%;font-size:18px;border-radius:7px;border:outset;padding:0px;" />
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <input type="reset" name="BtnReset" value="Reset" class="btn btn-danger btn-block"
+                                           style="height:35px;width:90%;font-size:18px;border-radius:7px;border:outset;padding:0px;" />
+                                </div>
+                            </div>
+
+
+
+
+                        }
+                    </div>
+                    <div class="col-sm-2">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+

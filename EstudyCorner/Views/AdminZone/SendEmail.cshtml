@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "SendEmail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 " style="min-height:400px;background-color:aqua;margin-top:80px;margin-bottom:80px;">
+
+            <div class="row text-center" style="min-height:60px;background-color:cadetblue;">
+                <div class="col-sm-12" style="color:whitesmoke;padding-top:10px;font-size:25px;">Send Mail<span class="glyphicon glyphicon-envelope"></span></div>
+            </div>
+            @using (Html.BeginForm("SendEmail", "AdminZone", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px; ">
+                        <p style="font-size:18px;">Email-id</p>
+                        <br />
+                        @Html.TextBox("email", null, new { @class = "form-control", placeholder = "Enter Email-id", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        <p style="font-size:18px;">Message</p>
+                        <br />
+                        @Html.TextArea("Message", null, new { @class = "form-control", placeholder = "Write your message...", row = 4, style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;">
+                        <input type="submit" class="btn-success btn-block" style="font-size:18px;width:95%;" />
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+</div>
+

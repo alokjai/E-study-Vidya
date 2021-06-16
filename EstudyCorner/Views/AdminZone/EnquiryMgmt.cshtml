@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "EnquiryMgmt";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EstudyCorner.Models
+@model IEnumerable<enquiry>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h1" style="background-color:#88f41a;padding:20px;margin-top:15px;border-radius:8px;">
+            Enquiry Management
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="padding:15px;">
+        <div class="col-sm-12" style="color:white;font-size:18px;">
+            <table border="1" style="width:100%;background-color:rgba(237, 196, 23, 0.78);border-radius:8px;"class="table table-hover table-responsive-sm table-bordered text-center">
+                <tr style="background-color: black;color:white;font-weight:800;">
+                    <th>Enquiry Id</th>
+                    <th>Name</th>
+                    <th>Email-Id</th>
+                    <th>Mobile No</th>
+                    <th>Message</th>
+                    <th>Date Time</th>
+                </tr>
+                @foreach (enquiry eq in Model)
+                {
+                    <tr style="color:black;font-weight:500;">
+                        <td >@eq.enquiryid</td>
+                        <td>@eq.name</td>
+                        <td>@eq.emailId</td>
+                        <td>@eq.mobno</td>
+                        <td>@eq.message</td>
+                        <td>@eq.enquiry_dt</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

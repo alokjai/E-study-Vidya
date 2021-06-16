@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "UploadSoft";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 " style="min-height:300px;background-color:aqua;margin-top:80px;margin-bottom:80px;    ">
+
+            <div class="row text-center" style="min-height:60px;background-color:cadetblue;">
+                <div class="col-sm-12" style="color:whitesmoke;padding-top:10px;font-size:25px;"><span class="glyphicon glyphicon-upload">Upload Software</span></div>
+            </div>
+            @using (Html.BeginForm("UploadSoft", "AdminZone", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px; ">
+                        @Html.TextBox("SoftName", null, new { required = "required", @class = "form-control", placeholder = "Software Name", style = "font-size:18px;padding:7px;width:95%;" })
+                    </div>
+                </div>
+
+               
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;margin-bottom:10px;">
+                        @Html.TextBox("soft", null, new { required = "required", type = "file", @class = "form-control", style = "font-size:18px;width:95%;" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" style="margin:20px;">
+                        <input type="submit" class="btn-success btn-block" style="font-size:18px;width:95%;" />
+                    </div>
+                </div>
+
+            }
+
+            <div class="row">
+                <div class="col-sm-12" style="margin:20px;">
+                    <span style="font-size:18px;font-weight:600;color:red;">@ViewBag.Msg</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+</div>
+
+

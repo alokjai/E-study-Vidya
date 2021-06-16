@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EstudyCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="assignment">
+          <Key>
+            <PropertyRef Name="assignID" />
+          </Key>
+          <Property Name="assignID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="assignDATE" Type="varchar" MaxLength="30" />
+          <Property Name="assignName" Type="varchar" MaxLength="30" />
+          <Property Name="fileName" Type="varchar" MaxLength="200" />
+          <Property Name="NoQues" Type="int" />
+          <Property Name="addedON" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DAnswer">
+          <Key>
+            <PropertyRef Name="AnsID" />
+          </Key>
+          <Property Name="AnsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuesID" Type="int" />
+          <Property Name="userID" Type="varchar" MaxLength="100" />
+          <Property Name="answer" Type="varchar" MaxLength="500" />
+          <Property Name="ansDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Dquestion">
+          <Key>
+            <PropertyRef Name="Qid" />
+          </Key>
+          <Property Name="Qid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="500" />
+          <Property Name="userID" Type="varchar" MaxLength="100" />
+          <Property Name="askDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="enquiry">
+          <Key>
+            <PropertyRef Name="enquiryid" />
+          </Key>
+          <Property Name="enquiryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="60" />
+          <Property Name="emailId" Type="varchar" MaxLength="100" />
+          <Property Name="mobno" Type="varchar" MaxLength="13" />
+          <Property Name="message" Type="varchar" MaxLength="500" />
+          <Property Name="enquiry_dt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LeaveApp">
+          <Key>
+            <PropertyRef Name="AppliID" />
+          </Key>
+          <Property Name="AppliID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="FileType" Type="varchar" MaxLength="50" />
+          <Property Name="userID" Type="varchar" MaxLength="100" />
+          <Property Name="Subject" Type="varchar" MaxLength="200" />
+          <Property Name="AddedON" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="30" />
+          <Property Name="BookName" Type="varchar" MaxLength="60" />
+          <Property Name="BookWriter" Type="varchar" MaxLength="60" />
+          <Property Name="AddedON" Type="datetime" />
+          <Property Name="BookFileName" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="50" />
+          <Property Name="Utype" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="notyID" />
+          </Key>
+          <Property Name="notyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="msg" Type="varchar" MaxLength="300" />
+          <Property Name="notydate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="registration">
+          <Key>
+            <PropertyRef Name="emailID" />
+          </Key>
+          <Property Name="Sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="60" />
+          <Property Name="Fname" Type="varchar" MaxLength="60" />
+          <Property Name="college" Type="varchar" MaxLength="60" />
+          <Property Name="Qualification" Type="varchar" MaxLength="100" />
+          <Property Name="branch" Type="varchar" MaxLength="100" />
+          <Property Name="course_year" Type="int" />
+          <Property Name="training_name" Type="varchar" MaxLength="100" />
+          <Property Name="emailID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="mobno" Type="varchar" MaxLength="13" />
+          <Property Name="gender" Type="varchar" MaxLength="7" />
+          <Property Name="address" Type="varchar" MaxLength="300" />
+          <Property Name="picName" Type="varchar" MaxLength="200" />
+          <Property Name="pass" Type="varchar" MaxLength="60" />
+          <Property Name="regDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Softupload">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+          </Key>
+          <Property Name="SerialNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="softDate" Type="datetime" />
+          <Property Name="SoftName" Type="varchar" MaxLength="60" />
+          <Property Name="SoftFile" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="StdFeedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="100" />
+          <Property Name="subject" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="FeedbackDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StdUpload">
+          <Key>
+            <PropertyRef Name="uploadID" />
+          </Key>
+          <Property Name="uploadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="topic" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="300" />
+          <Property Name="filename" Type="varchar" MaxLength="200" />
+          <Property Name="userId" Type="varchar" MaxLength="100" />
+          <Property Name="uploadDT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StudyMaterial">
+          <Key>
+            <PropertyRef Name="StdMatID" />
+          </Key>
+          <Property Name="StdMatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="30" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="FileType" Type="varchar" MaxLength="20" />
+          <Property Name="AddedON" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_DAnswer_registration">
+          <End Role="registration" Type="Self.registration" Multiplicity="0..1" />
+          <End Role="DAnswer" Type="Self.DAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="DAnswer">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dquestion_registration">
+          <End Role="registration" Type="Self.registration" Multiplicity="0..1" />
+          <End Role="Dquestion" Type="Self.Dquestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="Dquestion">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LeaveApp_registration">
+          <End Role="registration" Type="Self.registration" Multiplicity="0..1" />
+          <End Role="LeaveApp" Type="Self.LeaveApp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="LeaveApp">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StdFeedback_registration">
+          <End Role="registration" Type="Self.registration" Multiplicity="0..1" />
+          <End Role="StdFeedback" Type="Self.StdFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="StdFeedback">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StdUpload_registration">
+          <End Role="registration" Type="Self.registration" Multiplicity="0..1" />
+          <End Role="StdUpload" Type="Self.StdUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="StdUpload">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EstudyCornerModelStoreContainer">
+          <EntitySet Name="assignment" EntityType="Self.assignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAnswer" EntityType="Self.DAnswer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dquestion" EntityType="Self.Dquestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="enquiry" EntityType="Self.enquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveApp" EntityType="Self.LeaveApp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notification" EntityType="Self.notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registration" EntityType="Self.registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Softupload" EntityType="Self.Softupload" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdFeedback" EntityType="Self.StdFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdUpload" EntityType="Self.StdUpload" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudyMaterial" EntityType="Self.StudyMaterial" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DAnswer_registration" Association="Self.FK_DAnswer_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="DAnswer" EntitySet="DAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dquestion_registration" Association="Self.FK_Dquestion_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="Dquestion" EntitySet="Dquestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeaveApp_registration" Association="Self.FK_LeaveApp_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="LeaveApp" EntitySet="LeaveApp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdFeedback_registration" Association="Self.FK_StdFeedback_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="StdFeedback" EntitySet="StdFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdUpload_registration" Association="Self.FK_StdUpload_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="StdUpload" EntitySet="StdUpload" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EstudyCornerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="enquiry">
+          <Key>
+            <PropertyRef Name="enquiryid" />
+          </Key>
+          <Property Name="enquiryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="emailId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobno" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="enquiry_dt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Utype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="notyID" />
+          </Key>
+          <Property Name="notyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="msg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="notydate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="registration">
+          <Key>
+            <PropertyRef Name="emailID" />
+          </Key>
+          <Property Name="Sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Fname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="college" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="branch" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="course_year" Type="Int32" />
+          <Property Name="training_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="emailID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobno" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="picName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="regDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="StdFeedbacks" Relationship="EstudyCornerModel.FK_StdFeedback_registration" FromRole="registration" ToRole="StdFeedback" />
+          <NavigationProperty Name="DAnswers" Relationship="EstudyCornerModel.FK_DAnswer_registration" FromRole="registration" ToRole="DAnswer" />
+          <NavigationProperty Name="Dquestions" Relationship="EstudyCornerModel.FK_Dquestion_registration" FromRole="registration" ToRole="Dquestion" />
+          <NavigationProperty Name="StdUploads" Relationship="EstudyCornerModel.FK_StdUpload_registration" FromRole="registration" ToRole="StdUpload" />
+          <NavigationProperty Name="LeaveApps" Relationship="EstudyCornerModel.FK_LeaveApp_registration" FromRole="registration" ToRole="LeaveApp" />
+        </EntityType>
+        <EntityContainer Name="EstudyCornerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="enquiries" EntityType="Self.enquiry" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="notifications" EntityType="Self.notification" />
+          <EntitySet Name="registrations" EntityType="Self.registration" />
+          <EntitySet Name="StdFeedbacks" EntityType="EstudyCornerModel.StdFeedback" />
+          <AssociationSet Name="FK_StdFeedback_registration" Association="EstudyCornerModel.FK_StdFeedback_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="StdFeedback" EntitySet="StdFeedbacks" />
+          </AssociationSet>
+          <EntitySet Name="DAnswers" EntityType="EstudyCornerModel.DAnswer" />
+          <EntitySet Name="Dquestions" EntityType="EstudyCornerModel.Dquestion" />
+          <EntitySet Name="StdUploads" EntityType="EstudyCornerModel.StdUpload" />
+          <AssociationSet Name="FK_DAnswer_registration" Association="EstudyCornerModel.FK_DAnswer_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="DAnswer" EntitySet="DAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dquestion_registration" Association="EstudyCornerModel.FK_Dquestion_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="Dquestion" EntitySet="Dquestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdUpload_registration" Association="EstudyCornerModel.FK_StdUpload_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="StdUpload" EntitySet="StdUploads" />
+          </AssociationSet>
+          <EntitySet Name="assignments" EntityType="EstudyCornerModel.assignment" />
+          <EntitySet Name="StudyMaterials" EntityType="EstudyCornerModel.StudyMaterial" />
+          <EntitySet Name="Libraries" EntityType="EstudyCornerModel.Library" />
+          <EntitySet Name="Softuploads" EntityType="EstudyCornerModel.Softupload" />
+          <EntitySet Name="LeaveApps" EntityType="EstudyCornerModel.LeaveApp" />
+          <AssociationSet Name="FK_LeaveApp_registration" Association="EstudyCornerModel.FK_LeaveApp_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="LeaveApp" EntitySet="LeaveApps" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="StdFeedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FeedbackDt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="registration" Relationship="EstudyCornerModel.FK_StdFeedback_registration" FromRole="StdFeedback" ToRole="registration" />
+        </EntityType>
+        <Association Name="FK_StdFeedback_registration">
+          <End Type="EstudyCornerModel.registration" Role="registration" Multiplicity="0..1" />
+          <End Type="EstudyCornerModel.StdFeedback" Role="StdFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="StdFeedback">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DAnswer">
+          <Key>
+            <PropertyRef Name="AnsID" />
+          </Key>
+          <Property Name="AnsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuesID" Type="Int32" />
+          <Property Name="userID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="answer" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ansDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="registration" Relationship="EstudyCornerModel.FK_DAnswer_registration" FromRole="DAnswer" ToRole="registration" />
+        </EntityType>
+        <EntityType Name="Dquestion">
+          <Key>
+            <PropertyRef Name="Qid" />
+          </Key>
+          <Property Name="Qid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="askDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="registration" Relationship="EstudyCornerModel.FK_Dquestion_registration" FromRole="Dquestion" ToRole="registration" />
+        </EntityType>
+        <EntityType Name="StdUpload">
+          <Key>
+            <PropertyRef Name="uploadID" />
+          </Key>
+          <Property Name="uploadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="filename" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="uploadDT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="registration" Relationship="EstudyCornerModel.FK_StdUpload_registration" FromRole="StdUpload" ToRole="registration" />
+        </EntityType>
+        <Association Name="FK_DAnswer_registration">
+          <End Type="EstudyCornerModel.registration" Role="registration" Multiplicity="0..1" />
+          <End Type="EstudyCornerModel.DAnswer" Role="DAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="DAnswer">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dquestion_registration">
+          <End Type="EstudyCornerModel.registration" Role="registration" Multiplicity="0..1" />
+          <End Type="EstudyCornerModel.Dquestion" Role="Dquestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="Dquestion">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StdUpload_registration">
+          <End Type="EstudyCornerModel.registration" Role="registration" Multiplicity="0..1" />
+          <End Type="EstudyCornerModel.StdUpload" Role="StdUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="StdUpload">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="assignment">
+          <Key>
+            <PropertyRef Name="assignID" />
+          </Key>
+          <Property Name="assignID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="assignDATE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="assignName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NoQues" Type="Int32" />
+          <Property Name="addedON" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="StudyMaterial">
+          <Key>
+            <PropertyRef Name="StdMatID" />
+          </Key>
+          <Property Name="StdMatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FileType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AddedON" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BookName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="BookWriter" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="AddedON" Type="DateTime" Precision="3" />
+          <Property Name="BookFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Softupload">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+          </Key>
+          <Property Name="SerialNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="softDate" Type="DateTime" Precision="3" />
+          <Property Name="SoftName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SoftFile" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LeaveApp">
+          <Key>
+            <PropertyRef Name="AppliID" />
+          </Key>
+          <Property Name="AppliID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AddedON" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="registration" Relationship="EstudyCornerModel.FK_LeaveApp_registration" FromRole="LeaveApp" ToRole="registration" />
+        </EntityType>
+        <Association Name="FK_LeaveApp_registration">
+          <End Type="EstudyCornerModel.registration" Role="registration" Multiplicity="0..1" />
+          <End Type="EstudyCornerModel.LeaveApp" Role="LeaveApp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="emailID" />
+            </Principal>
+            <Dependent Role="LeaveApp">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EstudyCornerModelStoreContainer" CdmEntityContainer="EstudyCornerEntities">
+          <EntitySetMapping Name="enquiries">
+            <EntityTypeMapping TypeName="EstudyCornerModel.enquiry">
+              <MappingFragment StoreEntitySet="enquiry">
+                <ScalarProperty Name="enquiryid" ColumnName="enquiryid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="emailId" ColumnName="emailId" />
+                <ScalarProperty Name="mobno" ColumnName="mobno" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="enquiry_dt" ColumnName="enquiry_dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="EstudyCornerModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="Utype" ColumnName="Utype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notifications">
+            <EntityTypeMapping TypeName="EstudyCornerModel.notification">
+              <MappingFragment StoreEntitySet="notification">
+                <ScalarProperty Name="notyID" ColumnName="notyID" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+                <ScalarProperty Name="notydate" ColumnName="notydate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registrations">
+            <EntityTypeMapping TypeName="EstudyCornerModel.registration">
+              <MappingFragment StoreEntitySet="registration">
+                <ScalarProperty Name="Sn" ColumnName="Sn" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="college" ColumnName="college" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="course_year" ColumnName="course_year" />
+                <ScalarProperty Name="training_name" ColumnName="training_name" />
+                <ScalarProperty Name="emailID" ColumnName="emailID" />
+                <ScalarProperty Name="mobno" ColumnName="mobno" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="picName" ColumnName="picName" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="regDate" ColumnName="regDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdFeedbacks">
+            <EntityTypeMapping TypeName="EstudyCornerModel.StdFeedback">
+              <MappingFragment StoreEntitySet="StdFeedback">
+                <ScalarProperty Name="FeedbackDt" ColumnName="FeedbackDt" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAnswers">
+            <EntityTypeMapping TypeName="EstudyCornerModel.DAnswer">
+              <MappingFragment StoreEntitySet="DAnswer">
+                <ScalarProperty Name="ansDATE" ColumnName="ansDATE" />
+                <ScalarProperty Name="answer" ColumnName="answer" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="QuesID" ColumnName="QuesID" />
+                <ScalarProperty Name="AnsID" ColumnName="AnsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dquestions">
+            <EntityTypeMapping TypeName="EstudyCornerModel.Dquestion">
+              <MappingFragment StoreEntitySet="Dquestion">
+                <ScalarProperty Name="askDate" ColumnName="askDate" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="Qid" ColumnName="Qid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdUploads">
+            <EntityTypeMapping TypeName="EstudyCornerModel.StdUpload">
+              <MappingFragment StoreEntitySet="StdUpload">
+                <ScalarProperty Name="uploadDT" ColumnName="uploadDT" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="topic" ColumnName="topic" />
+                <ScalarProperty Name="uploadID" ColumnName="uploadID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="assignments">
+            <EntityTypeMapping TypeName="EstudyCornerModel.assignment">
+              <MappingFragment StoreEntitySet="assignment">
+                <ScalarProperty Name="addedON" ColumnName="addedON" />
+                <ScalarProperty Name="NoQues" ColumnName="NoQues" />
+                <ScalarProperty Name="fileName" ColumnName="fileName" />
+                <ScalarProperty Name="assignName" ColumnName="assignName" />
+                <ScalarProperty Name="assignDATE" ColumnName="assignDATE" />
+                <ScalarProperty Name="assignID" ColumnName="assignID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudyMaterials">
+            <EntityTypeMapping TypeName="EstudyCornerModel.StudyMaterial">
+              <MappingFragment StoreEntitySet="StudyMaterial">
+                <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="StdMatID" ColumnName="StdMatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Libraries">
+            <EntityTypeMapping TypeName="EstudyCornerModel.Library">
+              <MappingFragment StoreEntitySet="Library">
+                <ScalarProperty Name="BookFileName" ColumnName="BookFileName" />
+                <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+                <ScalarProperty Name="BookWriter" ColumnName="BookWriter" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Softuploads">
+            <EntityTypeMapping TypeName="EstudyCornerModel.Softupload">
+              <MappingFragment StoreEntitySet="Softupload">
+                <ScalarProperty Name="SoftFile" ColumnName="SoftFile" />
+                <ScalarProperty Name="SoftName" ColumnName="SoftName" />
+                <ScalarProperty Name="softDate" ColumnName="softDate" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveApps">
+            <EntityTypeMapping TypeName="EstudyCornerModel.LeaveApp">
+              <MappingFragment StoreEntitySet="LeaveApp">
+                <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="AppliID" ColumnName="AppliID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

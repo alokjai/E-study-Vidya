@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+   
+</style>
+
+<div class="container-fluid">
+    <div class="row" style="margin-top:50px;">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="Notification"><img src="~/Content/icon/Notification.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Notification Forum", "Notification", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="StdRecord"><img src="~/Content/icon/StudentManag.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Student Forum", "StdRecord", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="LeaveMgmt"><img src="~/Content/icon/Leave.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Application Forum", "LeaveMgmt", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row" ">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+           <br />
+            <a href="EnquiryMgmt"><img src="/Content/icon/Enquirymanag2.png" height="150" width="150" /></a><br /><br />
+            @Html.ActionLink("Enquiry Forum", "EnquiryMgmt", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px ;">
+           <br /> <a href="DiscussionForum"><img src="~/Content/icon/DiscussionManage.png" height="150" width="150" /></a><br /><br />
+            @Html.ActionLink("Discussion Forum", "DiscussionForum", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px ">
+            <a href="DownloadMgt"><img src="~/Content/icon/download.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Download Student Assignment", "DownloadMgt", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row" style="margin-bottom:20px;">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="UploadSoft"><img src="~/Content/icon/software.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Upload Software", "UploadSoft", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="SendSMS"><img src="~/Content/icon/Sendsms.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Send", "SendSMS", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 text-center" style="background-color:rgba(251, 251, 251, 0.44);border:solid;border-radius:10px;min-height:150px;min-width:100px;margin:20px;">
+            <a href="LibraryMgmt"><img src="~/Content/icon/studymaterial.png" height="150" width="150" /></a><br />
+            @Html.ActionLink("Library management", "LibraryMgmt", "AdminZone", new { style = "font-size:18px;color:white;font-weight:600;" })
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+

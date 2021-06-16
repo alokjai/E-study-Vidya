@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "AdminShowAnswer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EstudyCorner.Models
+@model IEnumerable<DAnswer>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h1" style="background-color:#88f41a;padding:20px;margin-top:15px;border-radius:8px;">
+            Answer Board
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="padding:15px;">
+        <div class="col-sm-12" style="color:white;font-size:18px;">
+            <table border="1" style="width:100%;background-color:rgba(237, 196, 23, 0.78);border-radius:8px;" class="table table-hover table-responsive-sm table-bordered text-center">
+                <tr style="background-color: black;color:white;font-weight:800;">
+                    <th>Answer-ID</th>
+                    <th>Reply</th>
+                    <th>Reply_on</th>
+
+                </tr>
+                @foreach (DAnswer AD in Model)
+                {
+                    <tr style="color:black;font-weight:500;">
+                        <td>@AD.AnsID</td>
+                        <td>@AD.answer</td>
+                        <td>@AD.ansDATE</td>
+
+                    </tr>
+                }
+            </table>
+
+            <div class="row" style="background-color:white;font-size:18px;margin:20px;">
+                <div class="col-sm-3"> </div>
+                <div class="col-sm-6 text-center">
+                    @Html.ActionLink("Back to Discussion Board", "DiscussionForum")
+                </div>
+                <div class="col-sm-3"> </div>
+            </div>
+        </div>
+    </div>
+</div>

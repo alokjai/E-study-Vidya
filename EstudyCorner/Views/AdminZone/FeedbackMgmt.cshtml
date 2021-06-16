@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "FeedbackMgmt";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using EstudyCorner.Models
+@model IEnumerable<StdFeedback>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-center h1" style="background-color:#88f41a;padding:20px;margin-top:15px;border-radius:8px;">
+            Feedback Management
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="padding:15px;">
+        <div class="col-sm-12" style="color:white;font-size:18px;">
+            <table border="1" style="width:100%;background-color:rgba(237, 196, 23, 0.78);border-radius:8px;" class="table table-hover table-responsive-sm table-bordered text-center">
+                <tr style="background-color: black;color:white;font-weight:800;">
+                    <th>Feedback Id</th>
+                    <th>Name</th>
+                    <th>User-Id</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Date Time</th>
+                </tr>
+                @foreach (StdFeedback Fd in Model)
+                {
+                    <tr style="color:black;font-weight:500;">
+                        <td>@Fd.FeedbackID</td>
+                        <td>@Fd.registration.name</td>
+                        <td>@Fd.userID</td>
+                        <td>@Fd.subject</td>
+                        <td>@Fd.Message</td>
+                        <td>@Fd.FeedbackDt</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

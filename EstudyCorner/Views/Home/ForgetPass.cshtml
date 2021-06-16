@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "ForgetPass";
+    Layout = "~/Views/Shared/General_layout.cshtml";
+}
+
+<script>
+    $("document").ready(function () {
+        $("#btnunique").click(function () {
+            var email = $("#email").val();
+            var mob = $("#mob").val();
+            $.ajax({
+                type: 'POST',
+                url: "/Home/ForgetPass",
+                data: { emailID: email, mobno: mob },
+               
+                success: function (res) {
+                    if (res == "SUCCESS") {
+                        $("#dvunique").slideUp("slow");
+                        $("#dvotp").slideDown("slow");
+                    }
+                    else if (res == "FAIL") {
+                        alert('Sorry! This email id or mobile number is not registered with us.');
+                    }
+                    else {
+                        alert('Sorry! due to some technical errors, we are unable to recover your password.');
+                    }
+                },
+            });
+        });
+        $("#btnotp").click(function () {
+           var code = $("#otp").val();
+            $.ajax({
+                type: 'POST',
+                url: "/Home/VerifyOTP",
+                data: { OTP: code },
+                success: function (res) {
+                    if (res == "SUCCESS") {
+                        $("#dvotp").slideUp("slow");
+                        $("#dvnewpass").slideDown("slow");
+                    }
+                    else {
+                        alert('You have entered invalid OTP, please try again.');
+                    }
+                }
+            });
+        });
+        $("#btnnewpass").click(function () {
+            var email = $("#email").val();
+            pass = $("#pass").val();
+            cpass = $("#cpass").val();
+            if (pass == cpass) {
+                $.ajax({
+                    type: 'POST',
+                    url: "/Home/SetNewPass",
+                    data: { Email: email, Pass: pass },
+                    success: function (res) {
+                        if (res == "SUCCESS") {
+                            alert('Congratulation! your password updated successfully.');
+                            window.location.href = "/Home/Login";
+                        }
+                        else {
+                            alert('Sorry! due to some technical errors we are unable to reset your password.');
+                        }
+                    }
+                });
+            }
+            else {
+                alert('New password and confirm password not same. Please Type Same Password');
+            }
+        });
+    });
+</script>
+
+<div class="container-fluid">
+   
+    <div class="row" style="margin:130px 0px;">
+        <div class="col-sm-3"></div>
+        <!-- Form to ask for unique details-->
+        <div id="dvunique" class="col-sm-6" style="background-color:aqua;color:white;font-size:20px;margin-top:15px;;margin-bottom:15px;padding-top:15px;padding-bottom:15px;">
+            <h3 class="text-center bg-success" style="padding:5px 0px;color:black;background-color:cadetblue;color:whitesmoke;">Enter your Registered Email Id and Mobile Number</h3>
+            <hr />
+            <input type="email" name="email" id="email" placeholder="Email Id" class="form-control" style="padding:15px;font-size:15px;" />
+            <br />
+            <input type="number" name="mob" id="mob" placeholder="Mobile No." class="form-control" style="padding:15px;font-size:15px;" />
+            <br />
+            
+            <input type="button" id="btnunique" value="Get OTP" class="btn btn-info" style="padding:12px;font-size:18px;margin:15px;font-weight:600;" />
+        </div>
+        <!-- Form to ask for OTP -->
+        <div id="dvotp" class="col-sm-6" style="background-color:aqua;color:white;font-size:20px;margin-top:15px;;margin-bottom:15px;padding-top:15px;padding-bottom:15px;display:none">
+            <h3 class="text-center bg-success" style="padding:5px 0px;color:black;background-color:cadetblue;">Verify Your OTP</h3>
+            <hr />
+            <input type="number" name="otp" id="otp" placeholder="Enter OTP" class="form-control" style="padding:15px;font-size:15px;" />
+            <br />
+            <input type="button" id="btnotp" value="Verify OTP" class="btn btn-info" style="padding:12px;font-size:18px;margin:15px;font-weight:600;" />
+        </div>
+        <!-- Form to ask new password-->
+        <div id="dvnewpass" class="col-sm-6" style="background-color:aqua;color:white;font-size:20px;margin-top:15px;;margin-bottom:15px;padding-top:15px;padding-bottom:15px;display:none;">
+            <h3 class="text-center bg-success" style="padding:5px 0px;color:black;background-color:cadetblue;">Enter New Password</h3>
+            <hr />
+            <input type="password" name="pass" id="pass" placeholder="New Password" class="form-control" style="padding:15px;font-size:15px;" />
+            <br />
+            <input type="password" name="cpasss" id="cpass" placeholder="Confirm new password" class="form-control" style="padding:15px;font-size:15px;" />
+            <br />
+            <input type="button" id="btnnewpass" value="Update Password" class="btn btn-info" style="padding:12px;font-size:18px;margin:15px;font-weight:600;" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>
+
